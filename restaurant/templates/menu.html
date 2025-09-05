@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>menu</h1>
+  <div class="menu"></div>
+  {%for item in menu_items %}
+  <p>
+    {{item.name}}
+    <span class="menu-price">{{item.price}}.00</span>
+  </p>
+{% endfor %}

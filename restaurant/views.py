@@ -20,5 +20,8 @@ def book(request):
             form.save()
     context = {'form':form}
     return render(request, 'book.html', context)
+def menu(request):
+    menu_data=Menu.objects.all()
+    return render(request, 'menu.html', {'menu_items':menu_data})
 
 # Add your code here to create new views

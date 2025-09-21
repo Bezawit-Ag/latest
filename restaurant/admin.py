@@ -5,7 +5,7 @@ class BookingAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'guest_number', 'comment')
 
 class MenuAdmin(admin.ModelAdmin):
-    list_display = ('name', 'Price')   
+    list_display = ('name', 'Price', 'description')
 
 admin.site.register(Menu, MenuAdmin)
 admin.site.register(Booking, BookingAdmin)

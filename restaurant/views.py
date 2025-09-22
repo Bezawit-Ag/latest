@@ -23,5 +23,8 @@ def book(request):
 def menu(request):
     context={'menu_items':Menu.objects.all()}
     return render(request, 'menu.html', context)
+def menu(request):
+    context={'menu_items':Menu.objects.all()}
+    return render(request, 'menu.html', context)
 
 # Add your code here to create new views

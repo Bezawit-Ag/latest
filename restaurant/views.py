@@ -29,7 +29,7 @@ def display(request,pk=None):
    
     else:
         menu_item=None
-    return render(request, 'display.html', {'menu_item':menu_item})
+    return render(request, 'display.html', {'menu':menu_item})
 
 
 # Add your code here to create new views

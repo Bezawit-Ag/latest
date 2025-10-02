@@ -8,5 +8,5 @@ urlpatterns = [
     path('book/', views.book, name="book"),
     path('home/', views.home ,name="home"),
     path('menu/', views.menu, name="menu"),
-    
+    path('menu/<int:pk>/', views.display, name="menu_item"),
       ]

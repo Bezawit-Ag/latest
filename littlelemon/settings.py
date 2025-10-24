@@ -11,12 +11,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-r-%0eqcja86asp_+*1@3d6t9wm65$7^p*v^m961p@)w7*3ob0n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False  # ❗Set to False for Render (True only for local testing)
+DEBUG = False  # ❌ Always False on Render
 
+# ✅ Add your Render domain and localhost for local testing
 ALLOWED_HOSTS = [
-    'latest-2-dk5s.onrender.com',  # ✅ your Render domain
+    'latest-2-dk5s.onrender.com',
+    '127.0.0.1',
     'localhost',
-    '127.0.0.1'
 ]
 
 # Application definition
@@ -27,11 +28,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'restaurant',
+    'restaurant',  # your app
 ]
 
+# Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # ✅ serve static files in production
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -42,6 +45,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'littlelemon.urls'
 
+# Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -60,7 +64,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'littlelemon.wsgi.application'
 
-# Database (using SQLite for now)
+# Database (SQLite for now)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -82,10 +86,15 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# ✅ Static & Media settings for production (Render)
+# Static files
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # ✅ Where collectstatic puts files
+STATICFILES_DIRS = [
+    BASE_DIR / 'restaurant' / 'static',  # your app static folder
+]
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
+# Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 

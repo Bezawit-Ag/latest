@@ -5,6 +5,7 @@ Django settings for littlelemon project.
 from pathlib import Path
 import os
 
+# BASE_DIR points to the project root
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -13,9 +14,9 @@ SECRET_KEY = 'django-insecure-r-%0eqcja86asp_+*1@3d6t9wm65$7^p*v^m961p@)w7*3ob0n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False  # ❌ Always False on Render
 
-# ✅ Add your Render domain and localhost for local testing
+# ✅ Allowed hosts for local dev + Render deployment
 ALLOWED_HOSTS = [
-    'latest-8.onrender.com',  # your current Render URL
+    'latest-10.onrender.com',  # Replace with your Render domain
     '127.0.0.1',
     'localhost',
 ]
@@ -49,7 +50,7 @@ ROOT_URLCONF = 'littlelemon.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'restaurant' / 'templates'],
+        'DIRS': [BASE_DIR / 'restaurant' / 'templates'],  # your template folder
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -86,15 +87,15 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# Static files
+# Static files (CSS, JS, images)
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # ✅ Where collectstatic puts files
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # ✅ where collectstatic will put files
 STATICFILES_DIRS = [
-    BASE_DIR / 'restaurant' / 'static',  # your app static folder
+    BASE_DIR / 'restaurant' / 'static',  # your app's static folder
 ]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-# Media files
+# Media files (uploads)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -103,3 +104,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ✅ Security settings recommended for Render
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+// update

@@ -1,49 +1,47 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Habesha Restaurant</title>
-    <meta name="description" content="A brief description" />
-    <meta
-      name="author"
-      content="Based in Bahirdar, Ethiopia, Habesha Restaurant is a family-owned restaurant, focused on traditional recipes served with a modern twist."
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#2f5149" />
 
-    <!-- Load favicon -->
-    <link
-      rel="shortcut icon"
-      type="image/png"
-      href="{% static 'img/favicon.ico' %}"
-    />
+  <title>Habesha Restaurant</title>
+  <meta name="description" content="Habesha Restaurant · Tradition meets taste in Bahirdar, Ethiopia." />
+  <meta name="author" content="Habesha Restaurant" />
 
-    <!-- Include your CSS files here -->
-    <link
-      rel="preload"
-      as="style"
-      href="{% static 'css/style.css' %}"
-      onload="this.rel = 'stylesheet'"
-    />
+  <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Karla&family=Markazi+Text:wght@500&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+  <link rel="preload" as="style" href="{% static 'css/style.css' %}" onload="this.rel='stylesheet'" />
 
-  <body>
-    <!--Header content-->
+  <noscript>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </noscript>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600&family=Markazi+Text:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div class="page-shell">
     {% include 'partials/_header.html' %}
-
-    <main>{% block content %} {% endblock %}</main>
-
-    <!-- Footer content -->
+    <main>{% block content %}{% endblock %}</main>
     {% include 'partials/_footer.html' %}
-  
-  </body>
+  </div>
+
+  <script>
+    const navToggle = document.querySelector('[data-nav-toggle]');
+    const nav = document.getElementById('site-nav');
+    if (navToggle && nav) {
+      navToggle.addEventListener('click', () => {
+        nav.classList.toggle('is-open');
+      });
+    }
+  </script>
+</body>
+
 </html>

@@ -2,47 +2,72 @@
 {% load static %}
 
 {% block content %}
-<section>
-    <article id="hero">
-      <h1 class="heading_shadow">SPECIAL OFFER</h1>
-      <p>
-        30% Off This Weekend 
-      </p>
-      <a href="#" class="cta"> Book now </a>
+<section class="hero">
+  <div class="hero__content">
+    <p class="hero__eyebrow">Weekend Signature Experience</p>
+    <h1>Modern Ethiopian plates inspired by Bahirdar</h1>
+    <p>
+      Chef-curated tasting menus, bold spices, and comforting classics—crafted for memorable evenings with family and friends.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--primary" href="{% url 'book' %}">Reserve a table</a>
+      <a class="btn btn--ghost" href="{% url 'menu' %}">Discover the menu</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__intro">
+    <p class="section__eyebrow">Highlights</p>
+    <h2>What’s cooking this week</h2>
+    <p>Seasonal plates, chef stories, and ways to enjoy Habesha Restaurant.</p>
+  </div>
+  <div class="card-grid">
+    <article class="card">
+      <img class="card__image" src="{% static 'img/Grill.jpg' %}" alt="Signature grill platter" />
+      <div class="card__title">
+        <h3>Seasonal chef’s menu</h3>
+        <span class="badge">New</span>
+      </div>
+      <p>A rotating collection of 12–15 dishes inspired by Ethiopian terroir and Mediterranean technique.</p>
+      <a class="card__cta" href="{% url 'menu' %}">Browse dishes →</a>
     </article>
-  </section>
-  <section>
-    <article>
-      <h2>Our New Menu</h2>
-      <img src="{% static 'img/grill.jpg' %}">
-      <p>
-        Our menu consists of 12-15 seasonal items based on Italian, Greek, and Turkish culture.
-      </p>
-      <p>
-        <a href="{% url 'menu' %}">See our new menu</a>
-      </p>
+    <article class="card">
+      <img class="card__image" src="{% static 'img/salad.jpg' %}" alt="Fresh salad bowl" />
+      <div class="card__title">
+        <h3>Private dining & events</h3>
+      </div>
+      <p>Celebrate milestones in our intimate dining room with curated pairings and live coffee ceremony.</p>
+      <a class="card__cta" href="{% url 'book' %}">Plan an event →</a>
     </article>
-    <article>
-      <h2>Book a table</h2>
-      <img src="{% static 'img/salad.jpg' %}">
-      <p>
-        Reserve your table for an Italian, Greek, and Turkish dining experience.
-      </p>
-      <p>
-        <a href="{% url 'book' %}">Book your table now</a>
-      </p>
-    </article>
-    <article>
-      <h2>Opening Hours</h2>
-      <img src="{% static 'img/head_chef.jpg' %}">
-      <p>
-        The Little Lemon Restaurant is open 7 days a week, except for public holidays. 
-      </p>
+    <article class="card">
+      <img class="card__image" src="{% static 'img/head_chef.jpg' %}" alt="Habesha head chef" />
+      <div class="card__title">
+        <h3>Kitchen hours</h3>
+      </div>
       <ul>
-        <li>Mon - Fri: 2pm - 10pm</li>
-        <li>Sat: 2pm - 11pm</li>
-        <li>Sun: 2pm - 9pm</li>
+        <li>Mon–Thu · 1pm–10pm</li>
+        <li>Fri–Sat · 1pm–11pm</li>
+        <li>Sun · 1pm–9pm</li>
       </ul>
+      <a class="card__cta" href="{% url 'book' %}">Visit us →</a>
     </article>
-  </section>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section__intro">
+    <p class="section__eyebrow">Our story</p>
+    <h2>Rooted in tradition, plated for today</h2>
+  </div>
+  <div class="about-grid">
+    <article class="story-block">
+      <p>Family-owned and proudly based in Bahirdar, we spotlight regional ingredients—berbere, teff, clarified butter—and add a refined spin.</p>
+      <p>From the lively injera baskets to charcoal-grilled meats, every dish tells a story passed down through generations.</p>
+    </article>
+    <div class="media-frame">
+      <img src="{% static 'img/restaurant_inside.jpg' %}" alt="Habesha dining room" />
+    </div>
+  </div>
+</section>
 {% endblock %}

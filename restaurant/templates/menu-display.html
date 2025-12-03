@@ -1,13 +1,13 @@
-{%extends 'base.html' %}
-{% block content %}
- <div class="row">
-  <div class="column">
-   
-      <h2>{{menu.name}}</h2>
-      <p>{{menu.description}}</p>
-      <p>{{menu.price}}</p>
-      
+{% extends 'base.html' %}
 
-    </div>
-</div>  
+{% block content %}
+<section class="section">
+  <article class="story-block">
+    <p class="section__eyebrow">Featured dish</p>
+    <h1>{{ menu.name }}</h1>
+    <p>{{ menu.description|default:"A chef-crafted plate highlighting Ethiopia’s seasonal bounty." }}</p>
+    <p><strong>Price:</strong> ETB {{ menu.Price|floatformat:2 }}</p>
+    <a class="btn btn--primary" href="{% url 'menu' %}">Back to menu</a>
+  </article>
+</section>
 {% endblock %}

@@ -1,12 +1,25 @@
 {% load static %}
-<header>
-  <img src="{% static 'img/logo2.png' %}" />
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="{% url 'home' %}">
+      <img src="{% static 'img/logo2.png' %}" alt="Habesha Restaurant logo" />
+      <span class="brand-copy">
+        <span class="brand-copy__title">Habesha</span>
+        <span class="brand-copy__subtitle">Tradition & Taste</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" data-nav-toggle>
+      Menu
+    </button>
+
+    <nav class="navbar" id="site-nav">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+        <li><a class="nav-link" href="{% url 'about' %}">About</a></li>
+        <li><a class="nav-link" href="{% url 'menu' %}">Menu</a></li>
+        <li><a class="nav-link" href="{% url 'book' %}">Book</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
-<nav>
-  <ul>
-    <li><a href="{% url 'home' %}">Home</a></li>
-    <li><a href="{% url 'about' %}">About</a></li>
-    <li><a href="{% url 'menu' %}">Menu</a></li>
-    <li><a href="{% url 'book' %}">Book</a></li>
-  </ul>
-</nav>

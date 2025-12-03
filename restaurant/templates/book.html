@@ -2,37 +2,35 @@
 {% load static %}
 
 {% block content %}
-<section>
-  <article>
-    <h1>Make a reservation</h1>
-    <!--Begin row-->
-    <div class="row">
-      <!--Begin col-->
-      <div class="column">
-        <form action="" method="post">
-          {% csrf_token %}
-          {{form.as_p}}
-          <input type="submit" id="button">
-        </form>
+<section class="section">
+  <div class="section__intro">
+    <p class="section__eyebrow">Reservations</p>
+    <h1>Secure your table in a few clicks</h1>
+    <p>Tell us when you’d like to dine and we’ll handle the rest.</p>
+  </div>
+  <div class="reservation-grid">
+    <article class="reservation-card">
+      <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn--primary" type="submit">Confirm booking</button>
+      </form>
+    </article>
+    <div>
+      <div class="story-block">
+        <h3>Dining room hours</h3>
+        <p>Monday – Sunday · 1pm to 11pm</p>
+        <p>Need something special? Let our concierge team know when booking.</p>
       </div>
-      <!--End col-->
-
-      <!--Begin col-->
-      <div class="column">
-        <div class="videowrap">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.234575479836!2d38.746829!3d9.030972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85909a17b621%3A0x39b3c5e5bb0b2c1!2sAddis%20Ababa%2C%20Ethiopia!5e0!3m2!1sen!2set!4v1695640000000!5m2!1sen!2set"man
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
+      <div class="section" style="margin-top:1.5rem;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.680815778912!2d37.39077!3d11.600361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x163585dbd6d51f8b%3A0xe3940700122972a9!2sBahir%20Dar%2C%20Ethiopia!5e0!3m2!1sen!2set!4v1695640000000"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
-      <!--End col-->
     </div>
-    <!--End row-->
-
-
-
-
-  </article>
+  </div>
 </section>
 {% endblock %}

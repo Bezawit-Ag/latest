@@ -4,8 +4,8 @@
 <section class="section">
   <div class="section__intro">
     <p class="section__eyebrow">Menus</p>
-    <h1>Plates built around spice, smoke, and soul</h1>
-    <p>Explore the full line-up or tap into featured dishes for the week.</p>
+    <h1>Authentic Ethiopian cuisine</h1>
+    <p>Traditional wats, tibs, kitfo, and vegetarian dishes—each prepared with house-ground spices and served on fresh injera.</p>
   </div>
   <div class="menu-list">
     {% for item in menu_items %}
@@ -14,7 +14,7 @@
           <a href="{% url 'menu_item' pk=item.pk %}">{{ item.name }}</a>
           <span class="menu-card__price">ETB {{ item.Price|floatformat:2 }}</span>
         </div>
-        <p>{{ item.description|default:"Crafted with seasonal ingredients and house spices." }}</p>
+        <p>{{ item.description|default:"Traditional Ethiopian dish prepared with authentic spices and fresh ingredients." }}</p>
       </article>
     {% empty %}
       <p>The menu is being refreshed. Please check back shortly.</p>

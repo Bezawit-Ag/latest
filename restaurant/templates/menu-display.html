@@ -5,7 +5,7 @@
   <article class="story-block">
     <p class="section__eyebrow">Featured dish</p>
     <h1>{{ menu.name }}</h1>
-    <p>{{ menu.description|default:"A chef-crafted plate highlighting Ethiopia’s seasonal bounty." }}</p>
+    <p>{{ menu.description|default:"A traditional Ethiopian dish prepared with authentic spices, fresh ingredients, and time-honored techniques from our family recipes." }}</p>
     <p><strong>Price:</strong> ETB {{ menu.Price|floatformat:2 }}</p>
     <a class="btn btn--primary" href="{% url 'menu' %}">Back to menu</a>
   </article>
